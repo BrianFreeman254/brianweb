@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Poetry and Files</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS for styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: auto;
+            max-width: 400px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 22px); /* full width minus padding and border */
+        }
+        button {
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        h2 {
+            color: #5cb85c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="accessContainer">
+        <h2>Enter Password to Access Admin Features</h2>
+        <input type="password" id="ownerPassword" placeholder="Owner Password">
+        <button onclick="checkOwnerPassword()">Submit</button>
+        <p id="message"></p>
+
+        <h2>Or Enter PIN for Users</h2>
+        <input type="text" id="userPin" placeholder="User PIN">
+        <button onclick="checkUserPin()">Submit</button>
+    </div>
+
+    <script>
+        const ownerPassword = "dF?8QsopLZmn"; // Your owner password
+        const userPin = "2005"; // User PIN
+
+        function checkOwnerPassword() {
+            const passwordInput = document.getElementById("ownerPassword").value;
+
+            if (passwordInput === ownerPassword) {
+                alert("Welcome, Owner! You have access to manage the website.");
+                // Redirect to admin area or another page for admin features
+                window.location.href = "admin.html"; // Update this with your actual admin page
+            } else {
+                document.getElementById("message").innerText = "Incorrect owner password. Please try again.";
+            }
+        }
+
+        function checkUserPin() {
+            const pinInput = document.getElementById("userPin").value;
+
+            if (pinInput === userPin) {
+                alert("Access granted to users! Enjoy the content.");
+                // Redirect to content area for users
+                window.location.href = "content.html"; // Update this with your actual content page
+            } else {
+                document.getElementById("message").innerText = "Incorrect PIN. Please try again.";
+            }
+        }
+    </script>
+
+</body>
+</html>
